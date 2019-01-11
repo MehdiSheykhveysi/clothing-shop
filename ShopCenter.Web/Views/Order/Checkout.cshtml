@@ -1,0 +1,45 @@
+@model OrderViewModel
+
+@{
+    Layout = "_Layout";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <div asp-validation-summary="All"></div>
+            <form asp-action="Checkout" method="POST" class="form">
+                <div class="form-group">
+                    <label asp-for="@Model.Name" class="control-label"></label>
+                    <input asp-for="@Model.Name" class="form-control" />
+                </div>
+                <div class="form-group ">
+                    <label asp-for="@Model.Address" class="control-label"></label>
+                    <input asp-for="@Model.Address" class="form-control" />
+                </div>
+                <div class="form-group ">
+                    <label asp-for="@Model.Phone" class="control-label"></label>
+                    <input asp-for="@Model.Phone" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.City" class="control-label"></label>
+                    <input asp-for="@Model.City" class="form-control" />
+                </div>
+                <div class="form-group ">
+                    <label asp-for="@Model.State" class="control-label"></label>
+                    <input asp-for="@Model.State" class="form-control" />
+                </div>
+                <div class="form-group ">
+                    <label asp-for="@Model.Country" class="control-label"></label>
+                    <input asp-for="@Model.Country" class="form-control" />
+                </div>
+                <div class="form-group ">
+                    <label asp-for="@Model.GiftWrap" class="control-label"></label>
+                    <input asp-for="@Model.GiftWrap" class="checkbox" />
+                </div>
+                <div class="form-group ">
+                    <input class="btn btn-primary" asp-controller="Order" asp-action="Checkout" type="submit" value="تکمیل سفارش" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

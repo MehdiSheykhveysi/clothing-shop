@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+
+    <title>فروشگاه من</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/main.css" rel="stylesheet">
+</head>
+<!--/head-->
+<body>
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <div class="container">
+                <div class="contactinfo">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-phone"></i> ۰۲۱۶۶۴۵۷۸۶3</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                    </ul>
+                </div>
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="logo">
+                    <a href="/">
+                        <img src="images/logo.png" alt="" />
+                        <b> فروشگاه اینترنتی</b>
+                    </a>
+                </div>
+                <div class="shop-menu">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-user"></i> حساب کاربری</a></li>
+                        <li><a href="#"><i class="fa fa-star"></i> لیست علاقه‌مندی‌ها</a></li>
+                        <li><a href="#"><i class="fa fa-shopping-cart"></i> سبد‌خرید</a></li>
+                        <li><a asp-controller="Account" asp-action="Register" asp-area="Admin" asp-route-ReturnUrl="@ViewContext.HttpContext.Request.PathAndQuery()"><i class="fa fa-shopping-cart"></i> ثبت نام</a></li>
+                        <li><a asp-controller="Account" asp-action="Login" asp-area="Admin" asp-route-ReturnUrl="@ViewContext.HttpContext.Request.PathAndQuery()"><i class="fa fa-lock"></i> ورود</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="mainmenu">
+                    <ul>
+                        <li><a href="/" class="active">خانه</a></li>
+                        <li>
+                            <a href="#">فروشگاه<i class="fa fa-angle-down"></i></a>
+                            <ul>
+                                <li><a href="#">محصولات</a></li>
+                                <li><a href="#">جزییات محصول</a></li>
+                                <li><a href="#">پرداخت</a></li>
+                                <li><a href="#">سبدخرید</a></li>
+                                <li><a asp-controller="Account" asp-action="Register" asp-area="Admin" asp-route-ReturnUrl="@ViewContext.HttpContext.Request.PathAndQuery()"><i class="fa fa-shopping-cart"></i> ثبت نام</a></li>
+                                <li><a asp-controller="Account" asp-action="Login" asp-area="Admin" asp-route-ReturnUrl="@ViewContext.HttpContext.Request.PathAndQuery()">ورود</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">بلاگ<i class="fa fa-angle-down"></i></a>
+                            <ul>
+                                <li><a href="#">بلاگ لیست</a></li>
+                            </ul>
+                        </li>
+                        <li><a asp-action="Contact" asp-controller="Home">تماس‌باما</a></li>
+                    </ul>
+                </div>
+                <div class="search_box">
+                    <input type="text" value=@ViewData["Term"] placeholder="جستجو" />
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><!--/header-bottom-->
+    </header><!--/header-->
+    @RenderBody()
+    <footer id="footer">
+        <!--Footer-->
+        <div class="footer-widget">
+            <div class="container">
+                <div class="single-widget">
+                    <h2>خدمات</h2>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">کمک آنلاین</a></li>
+                        <li><a href="#">تماس باماus</a></li>
+                        <li><a href="#">تغییر آدرس</a></li>
+                        <li><a href="#">پرسش‌های متداول</a></li>
+                    </ul>
+                </div>
+                <div class="single-widget">
+                    <h2>فروشگاه</h2>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">تیشرت</a></li>
+                        <li><a href="#">مردانه</a></li>
+                        <li><a href="#">زنانه</a></li>
+                        <li><a href="#">کارت هدیه</a></li>
+                        <li><a href="#">کفش</a></li>
+                    </ul>
+                </div>
+                <div class="single-widget">
+                    <h2>قوانین</h2>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">حریم شخصی</a></li>
+                        <li><a href="#">قوانین حقوقی</a></li>
+                        <li><a href="#">قوانین حقیقی</a></li>
+                        <li><a href="#">ثبت سفارش</a></li>
+                        <li><a href="#">پشتیبانی</a></li>
+                    </ul>
+                </div>
+                <div class="single-widget">
+                    <h2>درباره فروشگاه</h2>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">درباره شرکت</a></li>
+                        <li><a href="#">حمل و نقل</a></li>
+                        <li><a href="#">آدرس ما</a></li>
+                        <li><a href="#">برنامه‌های آینده</a></li>
+                        <li><a href="#">حریم شخصی</a></li>
+                    </ul>
+                </div>
+                <div class="single-widget">
+                    <h2>خبرنامه فروشگاه</h2>
+                    <form action="#" class="searchform">
+                        <input type="text" placeholder="آدرس ایمیل شما" />
+                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم  </p>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>کلیه حقوق برای سازنده این سایت محفوظ است.</p>
+            </div>
+        </div>
+
+    </footer><!--/Footer-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

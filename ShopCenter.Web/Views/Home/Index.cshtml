@@ -1,0 +1,38 @@
+@model HomeViewModel
+
+
+<div class=" container">
+    <div class="sidebar">
+        <h2 class="subject">دسته بندی</h2>
+        <div class="category-products">
+            @await Component.InvokeAsync("Category", new {controller="Home"})
+        </div><!--/category-products-->
+
+    </div>
+    <div class="content">
+        <h2 class="subject">محصولات</h2>
+        <div class="features_items">
+            <!--features_items-->
+            @foreach (var item in Model.list.ListItem)
+            {
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo ">
+                            <img src="@Url.Content("~/Images/"+item.ImgUrl)" alt="@item.PName" />
+                            <h2>@item.Price</h2>
+                            <p>@item.Description</p>
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-ProductID="@item.ID" asp-route-returnUrl2="@ViewContext.HttpContext.Request.PathAndQuery()" class="btn btn-info"> Addto </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <nav Page-data="@Model.list.pageData" Page-controller="Home" Page-action="Index" Page-Category="@Model.CurentCategory"></nav>
+    <div class="clear"></div>
+    @await Component.InvokeAsync("Cart")
+</div><!--features_items-->
+

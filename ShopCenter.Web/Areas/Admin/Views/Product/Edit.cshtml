@@ -1,0 +1,40 @@
+﻿@model ProductViewModel
+
+
+<div class="row">
+    <div class="col-md-12 text-right">
+        <form asp-action="Edit" asp-controller="Product" enctype="multipart/form-data">
+            <input asp-for="@Model.product.ID" type="hidden" />
+            <div class="form-group">
+                <label asp-for="@Model.product.PName" class="control-label"></label>
+                <input asp-for="@Model.product.PName" class="form-control" />
+                <span asp-validation-for="@Model.product.PName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.product.Description" class="control-label"></label>
+                <textarea asp-for="@Model.product.Description" class="form-control"></textarea>
+                <span asp-validation-for="@Model.product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.product.Price" class="control-label"></label>
+                <input asp-for="@Model.product.Price" class="form-control" />
+                <span asp-validation-for="@Model.product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.product.Category" class="control-label"></label>
+                <input asp-for="@Model.product.Category" class="form-control" />
+                <span asp-validation-for="@Model.product.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input hidden asp-for="@Model.product.ImgUrl" type="hidden" />
+                <label asp-for="@Model.product.ImgUrl" class="control-label"></label>
+                <input type="file" name="files" />
+                <span asp-validation-for="@Model.product.ImgUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" asp-route-returnUrl="@Model.returnUrl"/>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

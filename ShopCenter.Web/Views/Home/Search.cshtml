@@ -1,0 +1,5 @@
+@model List<Product>
+@foreach(Product Item in @Model){
+ <partial name="_ProductListPatialView" model="Item" />
+}
+   

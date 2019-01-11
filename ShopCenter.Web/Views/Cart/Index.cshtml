@@ -1,0 +1,61 @@
+@model CartIndexViewModel
+
+
+<section id="cart_items">
+        <div class="container">
+            <div class="cart_info">
+                <table class="table">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td>محصول</td>
+                            <td>توضیحات</td>
+                            <td>قیمت</td>
+                            <td>تعداد</td>
+                            <td>جمع</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model._cart.List)
+                        {
+                            <tr>
+                                <td class="cart_product">
+                                    <a href="#"><img src="@item.product.ImgUrl" alt="" width="110"></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">@item.product.PName</a></h4>
+                                    <p>کد کالا: @item.product.ID</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>@item.product.Price هزار تومان</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <a class="cart_quantity_up" href=""> + </a>
+                                        <input class="cart_quantity_input" type="text" name="quantity" value="@item.Quentity" autocomplete="off" size="2">
+                                        <a class="cart_quantity_down" href=""> - </a>
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">@(item.product.Price * item.Quentity) هزار تومان</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete" asp-controller="Cart" asp-action="RemoveFromCart" asp-route-ProductID="@item.product.ID" asp-route-returnUrl="@Model._returnUrl"><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">
+                                <a href="@Model._returnUrl" class="btn btn-info">ادامه خرید </a>
+                            </td>
+                            <td colspan="3">
+                                <a class="btn btn-info" asp-controller="Order" asp-action="Checkout">تکمیل فرایند خرید</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>

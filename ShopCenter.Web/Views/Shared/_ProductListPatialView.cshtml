@@ -1,0 +1,29 @@
+@model Product
+
+<div class=" container">
+    <div class="sidebar">
+        <h2 class="subject">دسته بندی</h2>
+        <div class="category-products">
+            @await Component.InvokeAsync("Category", new {controller="Home"})
+        </div><!--/category-products-->
+
+    </div>
+    <div class="content">
+        <h2 class="subject">محصولات</h2>
+        <div class="features_items">
+            <!--features_items-->
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo ">
+                            <img src="@Url.Content("~/Images/"+@Model.ImgUrl)" alt="@Model.PName" />
+                            <h2>@Model.Price</h2>
+                            <p>@Model.Description</p>
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-ProductID="@Model.ID" asp-route-returnUrl2="@ViewContext.HttpContext.Request.PathAndQuery()" class="btn btn-info"> Addto </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>

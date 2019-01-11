@@ -1,0 +1,17 @@
+@model PayInput
+
+<section id="cart-items">
+<div class="container">
+    <div class="cart_info">
+        <div class="description">
+            <h2>از خرید شما متشکریم.!</h2>
+            <p>سفارش شما با شماره @Model.OrderId ومبلغ @Model.Amount </p>
+            <form asp-action="Pay" asp-controller="Payment" method="POST"> 
+                <input type="hidden" value="@Model.Amount" name="Amount"/>
+                <input type="hidden" value="@Model.OrderId" name="OrderId"/>
+                <input type="submit" value="پرداخت" class="btn btn-info"/>
+            </form> 
+        </div>
+    </div>
+</div>
+</section>
